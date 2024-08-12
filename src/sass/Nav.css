@@ -7,9 +7,6 @@
 .nav ul li {
   @apply max-[1000px]:mx-auto max-[1000px]:py-2 max-[1000px]:text-white  max-[1000px]:bg-amber-800 max-[1000px]:rounded-full  max-[1000px]:mb-5 italic text-amber-900  text-opacity-55 font-serif  pl-7 text-3xl duration-700 ease-in-out max-[1000px]:hover:translate-x-3 hover:text-amber-600 hover:cursor-pointer;
 }
-.nav ul li Link {
-  display: none;
-}
 .nav .right-links {
   @apply max-[1000px]:left-1/2 max-[1000px]:-translate-x-2/3  max-[1000px]:w-full   max-[1000px]:mt-24;
 }

@@ -48,20 +48,21 @@ dispatch(fetchdata());
         meals.filter((meal:Meals)=>meal.ID == id )
             .map((meal:Meals)=>{
                 return(
-                <div key={meal.id} className={`group shadow-lg h-full min-h-96  card w-4/5 relative overflow-hidden flex   mx-auto   duration-700 ease-in-out  border`}>
+                <div key={meal.id} className={`group shadow-lg h-full   card w-3/4 relative overflow-hidden    mx-auto   duration-700 ease-in-out  border`}>
                     
                     <div  className="w-1/2  ">
-                    <div className="title overflow-hidden   group-hover:left-0 text-left z-10 ">
+                    <div className="title overflow-hidden    group-hover:left-0 text-left z-10 ">
                         <h2>{meal.title}</h2>
                     </div>
-                    <div className="w-full  mx-auto overflow-hidden hover:brightness-75 ">
-                        <img className=" w-full h-full max-h-96 hover:scale-110 duration-700 ease-in-out" src={meal.url} alt="Not found"/>
                     </div>
+                    <div className="flex w-full max-[605px]:block   ">
+                    <div className="  max-[605px]:w-full w-1/2 h-96  overflow-hidden hover:brightness-75 ">
+                        <img className=" w-full h-full  hover:scale-110 duration-700 ease-in-out" src={meal.url} alt="Not found"/>
                     </div>
-                    <div className="bg-amber-50 w-1/2 overflow-hidden">
+                    <div className="bg-amber-50 max-[605px]:w-full w-1/2 overflow-hidden">
                     <div className="components text-left mt-10 ml-4">
-                    <div className="desc">
-                        {meal.description}
+                    <div className="desc text-amber-800 italic text-md  font-serif ">
+                        <span className="text-red-700 text-2xl italic font-serif">Describtion: </span>{meal.description}
                     </div>
                     <div className="pric py-3">
                     <p className="text-2xl italic font-serif text-amber-600 "><span className="text-3xl font-serif text-red-600 ">Price : </span>{meal.price} $</p> 
@@ -114,6 +115,7 @@ dispatch(fetchdata());
                         </div>
                         </div>
                             
+                    </div>
                     </div>
                 </div>
                 )

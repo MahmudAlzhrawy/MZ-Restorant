@@ -18,5 +18,5 @@
   animation-delay: 0.5s;
 }
 .Main .title {
-  @apply absolute top-0 bg-white bg-opacity-50 w-full text-center  left-full flex justify-center transform  duration-700 ease-in-out;
+  @apply absolute top-0 bg-white bg-opacity-60 w-full text-center  left-full flex justify-center transform  duration-700 ease-in-out;
 }/*# sourceMappingURL=Foodcard.css.map */

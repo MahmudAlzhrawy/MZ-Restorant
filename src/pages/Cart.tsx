@@ -224,18 +224,18 @@ return (
         <div className="container mt-10">
         {cartMeals.filter((mel) => mel.user?.userId === auth.currentUser?.uid).map((mel) => {
             return (
-            <div key={mel.id} className="card">
+            <div key={mel.id} className="cardc">
                 <div className="image w-1/3 mx-auto">
                 <img className="h-60 w-full" src={mel.url} alt="Not Found" />
                 </div>
                 <div className="conten w-4/5 mx-auto">
                 <div className="title"><h2>{mel.title}</h2></div>
-                <div className="des"><p><span>Description : </span> <br />{mel.description}</p></div>
-                <div className="prate justify-between">
+                <div className="des"><p className=" flex-wrap"><span>Description : </span> <br />{mel.description.slice(0,50)}</p></div>
+                <div className="prate ">
                     <div className="pric">
                     <p className="text-xl font-serif text-gray-900"><span className="text-red-600 font-serif text-2xl gap-6">Price : </span>{(mel.price * mel.quantity)} $</p>
                     </div>
-                    <div className="remqu ml-10 flex">
+                    <div className="remqu max-[770px]:ml-3 ml-10 flex">
                     <div className="qunt border-2 rounded-t-md border-b-transparent border-amber-800">
                         <Button className="rounded-t-3xl text-amber-800 text-2xl font-serif" onClick={() => { decreas(mel.id, mel.quantity) }}>-</Button>
                         <span className="text-amber-800 p-2 inline-block bg-amber-400 rounded-full">{mel.quantity}</span>

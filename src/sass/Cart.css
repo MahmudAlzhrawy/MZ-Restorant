@@ -1,25 +1,25 @@
 .Maincart .container {
   @apply border mx-auto p-3;
 }
-.Maincart .container .card {
-  @apply relative flex overflow-hidden  w-full mx-auto bg-amber-200 rounded-br-full mb-3 rounded-l-full
+.Maincart .container .cardc {
+  @apply h-full relative flex overflow-hidden  w-full mx-auto bg-amber-200 rounded-br-full mb-3 rounded-l-full
             after:absolute  after:top-0 after:right-0  after:border-8 after:border-l-transparent after:border-b-transparent after:border-t-red-800 after:border-r-red-800;
 }
-.Maincart .container .card .image {
+.Maincart .container .cardc .image {
   @apply overflow-hidden rounded-full;
 }
-.Maincart .container .card .image img {
+.Maincart .container .cardc .image img {
   @apply hover:scale-110 duration-700 rounded-full;
 }
-.Maincart .container .card .conten {
+.Maincart .container .cardc .conten {
   @apply relative translate-x-6;
 }
-.Maincart .container .card .conten .des {
-  @apply text-left  text-xl font-mono text-gray-700 text-opacity-50;
+.Maincart .container .cardc .conten .des {
+  @apply text-left  text-xl font-mono text-amber-950;
 }
-.Maincart .container .card .conten .des span {
+.Maincart .container .cardc .conten .des span {
   @apply text-red-600 font-serif text-2xl;
 }
-.Maincart .container .card .conten .prate {
-  @apply absolute bottom-0 left-0 flex;
+.Maincart .container .cardc .conten .prate {
+  @apply absolute bottom-0 left-0  max-[770px]:block flex;
 }/*# sourceMappingURL=Cart.css.map */
