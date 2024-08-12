@@ -111,7 +111,7 @@ const logout = () => {
         <>
         <div onClick={()=>{
             setClick(el =>!el);
-        }} className={ ` ${clicked?"left-32 rotate-180":"left-0"} max-[1000px]:block min-[1001px]:hidden arrow z-50 duration-1000 ease-in-out fixed top-1/2 -translate-y-1/2 text-amber-950 ` }>< ChevronRight sx={{fontSize:60}}/></div>
+        }} className={ ` ${clicked?"left-32 rotate-180":"left-0"} bg-amber-500 rounded-full max-[1000px]:block min-[1001px]:hidden arrow z-50 duration-1000 ease-in-out fixed top-1/2 -translate-y-1/2 text-amber-50 ` }>< ChevronRight sx={{fontSize:60}}/></div>
         <nav style={style()} className={` ${clicked ?"max-[1000px]:-translate-x-0  ":"max-[1000px]:-translate-x-full" } duration-500 ease-in-out nav flex  z-50 border-b-2   border-b-white    h-20   w-full mt-0.5 drop-shadow-md shadow-black  `}>
             <div className="right-links items-center absolute top-1/4 right-0 min-[1024px]:-translate-x-5 ">
             <ul className="flex  items-center  max-[1000px]:mt-10 ">

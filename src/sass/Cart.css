@@ -12,7 +12,7 @@
   @apply hover:scale-110 duration-700 rounded-full;
 }
 .Maincart .container .cardc .conten {
-  @apply relative translate-x-6;
+  @apply relative max-[440px]:translate-x-2 translate-x-6;
 }
 .Maincart .container .cardc .conten .des {
   @apply text-left  text-xl font-mono text-amber-950;

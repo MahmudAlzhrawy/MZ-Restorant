@@ -230,17 +230,17 @@ return (
                 </div>
                 <div className="conten w-4/5 mx-auto">
                 <div className="title"><h2>{mel.title}</h2></div>
-                <div className="des"><p className=" flex-wrap"><span>Description : </span> <br />{mel.description.slice(0,50)}</p></div>
-                <div className="prate ">
+                <div className="des min-[381px]:block max-[380px]:hidden "><p className=" flex-wrap"><span>Description : </span> <br />{mel.description.slice(0,30)}</p></div>
+                <div className="prate mt-6 ">
                     <div className="pric">
                     <p className="text-xl font-serif text-gray-900"><span className="text-red-600 font-serif text-2xl gap-6">Price : </span>{(mel.price * mel.quantity)} $</p>
                     </div>
                     <div className="remqu max-[770px]:ml-3 ml-10 flex">
-                    <div className="qunt border-2 rounded-t-md border-b-transparent border-amber-800">
-                        <Button className="rounded-t-3xl text-amber-800 text-2xl font-serif" onClick={() => { decreas(mel.id, mel.quantity) }}>-</Button>
+                    <div className="qunt border-2 max-[378px]:w-14 w-28 rounded-t-md border-b-transparent border-amber-800">
+                        <button className="rounded-t-3xl text-amber-800 text-2xl w-10 font-serif" onClick={() => { decreas(mel.id, mel.quantity) }}>-</button>
                         <span className="text-amber-800 p-2 inline-block bg-amber-400 rounded-full">{mel.quantity}</span>
-                        <Button className="rounded-t-3xl text-amber-800 text-2xl font-serif"  onClick={() => { increas(mel.id, mel.quantity) }}>+</Button></div>
-                    <div className="remove border-2 rounded-t-md border-b-transparent ml-2 border-amber-800">
+                        <button className="rounded-t-3xl text-amber-800 text-2xl w-10 font-serif"  onClick={() => { increas(mel.id, mel.quantity) }}>+</button></div>
+                    <div className="remove border-2 rounded-t-md border-b-transparent ml-2  border-amber-800">
                         <Button onClick={() => { del(mel.id) }}>
                         <DeleteIcon style={{color:"#D2691E"}}  />
                         </Button>

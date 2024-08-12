@@ -13,7 +13,7 @@
                 }
             }
             .conten{ 
-                @apply relative translate-x-6;
+                @apply relative max-[440px]:translate-x-2 translate-x-6;
                 .des{
                     @apply text-left  text-xl font-mono text-amber-950;
                     span{
