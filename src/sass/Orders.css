@@ -1,0 +1,9 @@
+.container .infor div {
+  @apply w-2/3;
+}
+.container .infor div p {
+  @apply text-base font-serif text-gray-600 text-opacity-35;
+}
+.container .infor div p span {
+  @apply text-red-700 text-2xl font-serif;
+}/*# sourceMappingURL=Orders.css.map */

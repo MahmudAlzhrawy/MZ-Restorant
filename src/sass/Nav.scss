@@ -1,0 +1,18 @@
+.nav{
+    @apply  max-[1000px]:h-full max-[1000px]:max-h-screen max-[1000px]:w-full max-[1000px]:opacity-90 max-[1000px]:max-w-32;
+    ul{
+        @apply max-[1000px]:block;
+        li{
+            @apply max-[1000px]:mx-auto max-[1000px]:py-2 max-[1000px]:text-white  max-[1000px]:bg-amber-800 max-[1000px]:rounded-full  max-[1000px]:mb-5 italic text-amber-900  text-opacity-55 font-serif  pl-7 text-3xl duration-700 ease-in-out max-[1000px]:hover:translate-x-3 hover:text-amber-600 hover:cursor-pointer;
+        }
+    }
+    .right-links{
+        @apply max-[1000px]:left-1/2 max-[1000px]:-translate-x-2/3  max-[1000px]:w-full   max-[1000px]:mt-24
+
+    }
+    .left{
+        @apply max-[1000px]:top-20  max-[1000px]:left-1/2 max-[1000px]:-translate-x-2/3  max-[1000px]:w-full 
+
+    }
+
+}

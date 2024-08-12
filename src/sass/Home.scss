@@ -1,0 +1,15 @@
+li{
+    @apply italic text-amber-900  text-opacity-55 font-serif  pl-7 text-3xl duration-700 ease-in-out hover:text-amber-600 hover:cursor-pointer
+}
+.Mainhom{
+.container{
+    @apply h-full overflow-hidden;
+    background-image: url("../assets/images/home2.jpg");
+    background-size: cover;
+    background-position:top;
+
+    .cont{
+        @apply  after:text-gray-100 after:font-serif after:text-2xl  overflow-hidden  after:absolute after:bg-slate-300 after:top-0 after:bg-opacity-20 after:translate-x-1/2  hover:after:-translate-x-1/2 after:duration-700 hover:brightness-75   after:h-full after:w-full after:text-left 
+    }
+}
+}
