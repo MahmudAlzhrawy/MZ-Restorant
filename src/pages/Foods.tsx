@@ -65,11 +65,11 @@ export function Foods( {isAuth}:bolProps ){
     return(<>
 
         <div style={{height:"700px"}} className="group back w-full relative  overflow-x-hidden  ">
-            <div onClick={handlesearch}  className={`${isClic?"right-1/3  translate-x-10 top-48":"-right-1 top-36"} serach_icon z-10  fixed  bg-amber-900 bg-opacity-35  hover:bg-opacity-65 duration-700 p-2 rounded-l-full`}>
+            <div onClick={handlesearch}  className={`${isClic?"max-[400px]:right-1/2 right-1/3 max-[1114px]:translate-x-4 max-[400px]:translate-x-2  translate-x-10 top-48":"-right-1 top-36"} serach_icon z-10  fixed  bg-amber-900 bg-opacity-35  hover:bg-opacity-65 duration-700 p-2 rounded-l-full`}>
             <SearchIcon  sx={{ color: 'white', fontSize: '3.5rem' }} />
             </div>
         <h1 className="  py-5 px-14 bg-amber-400  rounded-xl hover:bg-amber-400 hover:scale-105 duration-700 ease-in-out bg-opacity-20  absolute top-1/2 z-10 left-1/2 text-6xl -translate-x-1/2 -translate-y-1/2 italic text-white text-opacity-80 font-serif mt-3">{category}</h1>
-        <div className={`overflow-x-hidden z-10 fixed  w-1/3 ${isClic?"right-0":"-right-full"}  duration-1000  ease-in-out  top-48  border-amber-50 `}>
+        <div className={`overflow-x-hidden z-10 fixed max-[400px]:w-1/2 w-1/3 ${isClic?"right-0":"-right-full"}  duration-1000  ease-in-out  top-48  border-amber-50 `}>
         <TextField 
         id="search-field"
         label="Search"
