@@ -28,7 +28,7 @@ function App() {
       <Routes>
         <Route  path="offers" element={<Offers isAuth={isAuth}/>} />
         <Route path="/" element={<Home setAuth={setAuth}/>}/>
-        <Route path="signup" element={<Signup/>}/>
+        <Route path="signup" element={<Signup setAuth={setAuth}/>}/>
         <Route path="login" element={<Login setAuth={setAuth} />}/>
         <Route path="/Food/:cat" element={<Foods isAuth={isAuth}/>}/>
         <Route path="orders" element={<Orders/>}/>

@@ -48,7 +48,7 @@ dispatch(fetchdata());
         meals.filter((meal:Meals)=>meal.category === category && meal.isOffer ==="NO")
             .map((meal:Meals)=>{
                 return(
-                <div key={meal.id} className={`group card relative overflow-hidden    duration-700 ease-in-out w-full shadow`}>
+                <div key={meal.id} className={`group card pt-3 bg-white relative overflow-hidden    duration-700 ease-in-out w-full shadow`}>
                     
                     <div className="title group-hover:left-0 z-10 ">
                         <h2>{meal.title}</h2>

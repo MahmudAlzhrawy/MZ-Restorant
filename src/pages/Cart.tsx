@@ -164,11 +164,12 @@ setTotPrice(totPriseForMeals);
 
 return (
 <div className="Maincart mt-32">
-    {isAuth &&
-    <div>
+
         <div className="p-4 bg-amber-600 bg-opacity-20 w-60 mx-auto rounded-lg">
         <h2 className="text-amber-800 text-4xl font-serif">My Cart</h2>
         </div>
+    {isAuth &&
+    <div>
         <div className="order mt-4 w-full max-w-64 border mx-auto">
         <p> Total :{totPrice} $</p>
         <Button variant="outlined" onClick={() => { setClick(ev => !ev) }} >Complete Order</Button>
