@@ -1,0 +1,10 @@
+.main{
+    .dash{
+        @apply shadow-lg h-96  ; 
+        .navlin{
+            @apply mt-4;
+        .navl{
+            @apply inline-block ml-10 bg-amber-400  py-2 px-3 rounded-lg text-white font-serif italic text-2xl hover:scale-110 hover:bg-amber-500 duration-700 ease-in-out
+        }}
+    }
+}

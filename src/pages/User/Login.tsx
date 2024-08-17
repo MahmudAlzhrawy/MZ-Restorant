@@ -1,11 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { auth ,provider} from "../../firebase-config";
-import { signInWithEmailAndPassword,signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase-config";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { Toast } from "../../Sweetalert";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+
 import "../../sass/newprod.scss"
 interface LoginProps {
     setAuth: React.Dispatch<React.SetStateAction<boolean>>;

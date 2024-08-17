@@ -18,6 +18,7 @@ interface Meal {
     url?: string;
     isOffer: string;
     category: string;
+    count:1,
 }
 
 export function AddNewFood() {
@@ -109,6 +110,7 @@ export function AddNewFood() {
                 const lastId = await getLastMealId();
                 const newId = lastId + 1;
                 const meal: Meal = {
+                    count:1,
                     ID: newId,
                     title: values.title,
                     description: values.description,
@@ -119,11 +121,7 @@ export function AddNewFood() {
                 };
                 await uploadImageAndSaveMeals(meal, file);
                 setFile(null);
-                if(values.isOffer==="NO"){
-                navigate(`/Food/${values.category}`);}
-                else{
-                    navigate(`/offers`);
-                }
+                navigate(`/dashbord`);
             } catch (error) {
                 console.log("Error in form submission:", error);
                 Toast.fire({

@@ -20,7 +20,8 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import InfoIcon from '@mui/icons-material/Info';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-
+ import HomeIcon from '@mui/icons-material/Home';
+ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 interface navprop
 {
@@ -47,6 +48,7 @@ export function Navbar({setAuth}:navprop){
     const dispatch=useDispatch<AppDispatch>();
     const cartMeals=useSelector((state :RootState)=>state.Cart)as Meals[]; 
     const location = useLocation();
+    const dash=location.pathname ==="/dashbord";
     const adm =location.pathname === "/orders" || location.pathname ==="/addNew" || location.pathname==="/Edit_meals";
     const style=():React.CSSProperties=>{
         if(location.pathname ==="/"){
@@ -112,18 +114,17 @@ const logout = () => {
         <div onClick={()=>{
             setClick(el =>!el);
         }} className={ ` ${clicked?"left-32 rotate-180":"left-0"} bg-amber-500 rounded-full max-[1000px]:block min-[1001px]:hidden arrow z-50 duration-1000 ease-in-out fixed top-1/2 -translate-y-1/2 text-amber-50 ` }>< ChevronRight sx={{fontSize:60}}/></div>
-        <nav style={style()} className={` ${clicked ?"max-[1000px]:-translate-x-0  ":"max-[1000px]:-translate-x-full" } duration-500 ease-in-out nav flex  z-50 border-b-2   border-b-white    h-20   w-full mt-0.5 drop-shadow-md shadow-black  `}>
+        <nav style={style()} className={` ${clicked ?"max-[1000px]:-translate-x-0  ":"max-[1000px]:-translate-x-full" } duration-500 ease-in-out nav flex  z-40 border-b-2   border-b-white max-[1000px]:bg-white    h-20   w-full mt-0.5 drop-shadow-md shadow-black  `}>
             <div className="right-links items-center absolute top-1/4 right-0 min-[1024px]:-translate-x-5 ">
             <ul className="flex  items-center  max-[1000px]:mt-10 ">
                 
-                    {!adm&&<li> <Link to="admin" className="max-[1001px]:hidden">Admin</Link><Link to="admin" className="max-[1000px]:block min-[1001px]:hidden "><AdminPanelSettingsIcon sx={{ fontSize: 40 }}/></Link></li>}
-                    {adm &&<li><Link to="/orders" className="max-[1001px]:hidden ">Orders</Link><Link to="/orders" className="max-[1000px]:block min-[1001px]:hidden ">ord</Link></li>}
-                    {adm &&<li><Link to="/addNew"><AddIcon/></Link></li>}
-                    {adm && <li><Link to="/Edit_meals"className="max-[1001px]:hidden">Edit</Link><Link to="/Edit_meals"className="max-[1000px]:block min-[10001px]:hidden "><EditIcon sx={{ fontSize: 40 }}/></Link></li>}
-                    {!adm &&<li className="relative mr-2 "><Link to="cart" ><ShoppingBag sx={{ fontSize: 40 }} /><span className="absolute  -bottom-1.5 translate-x-1 left-1/2 inline-block w-5 h-6 rounded-full text-sm text-red-300 bg-white">{num}</span></Link></li>}
-                    <li className="py-2 pr-3 pl-1 border-transparent hover:bg-amber-400 bg-amber-300 "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>
-                    {(isAuth ==="true"&& !adm) &&<><li className=" py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 max-[1001px]:hidden  ml-2" onClick={logout}>logout</li><li className="max-[1000px]:block min-[1001px]:hidden" onClick={logout}><LogoutIcon sx={{ fontSize: 40 }}/></li></>}
-                    {(isAuth ==="false"&& !adm) &&<li className="py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 ml-2"><Link className=" max-[1001px]:hidden " to="Login">Login</Link><Link className="max-[1000px]:block min-[1001px]:hidden  "to="Login"><LoginIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(!adm && !dash) &&<li> <Link to="admin" className="max-[1001px]:hidden">Admin</Link><Link to="admin" className="max-[1000px]:block min-[1001px]:hidden "><AdminPanelSettingsIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(adm)&&<li><Link to="dashbord"><DashboardIcon /></Link></li>}
+                    {(!adm && !dash) &&<li className="relative mr-2 "><Link to="cart" ><ShoppingBag sx={{ fontSize: 40 }} /><span className="absolute  -bottom-1.5 translate-x-1 left-1/2 inline-block w-5 h-6 rounded-full text-sm text-red-300 bg-white">{num}</span></Link></li>}
+                    {(adm || dash) &&<li><Link to="/"> <HomeIcon style={{ fontSize: 40, color: 'blue' }} /></Link></li>}
+                    {(!adm && !dash)&&<li className="py-2 pr-3 pl-1 border-transparent hover:bg-amber-400 bg-amber-300 "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(isAuth ==="true"&& (!adm && !dash)) &&<><li className=" py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 max-[1001px]:hidden  ml-2" onClick={logout}>logout</li><li className="max-[1000px]:block min-[1001px]:hidden" onClick={logout}><LogoutIcon sx={{ fontSize: 40 }}/></li></>}
+                    {(isAuth ==="false"&& (!adm && !dash)) &&<li className="py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 ml-2"><Link className=" max-[1001px]:hidden " to="Login">Login</Link><Link className="max-[1000px]:block min-[1001px]:hidden  "to="Login"><LoginIcon sx={{ fontSize: 40 }}/></Link></li>}
                 </ul>
             
             </div>

@@ -1,9 +1,8 @@
 import React, { useState,useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { admauth, admprovider, orderdb } from "../../firbase-config3";
 import { Toast } from "../../Sweetalert";
-import { Button } from "@mui/material";
 import { collection, getDocs } from "firebase/firestore";
 interface admin{
     adminId:string;
@@ -33,7 +32,7 @@ export function Admin(){
                 icon: "success",
                 title: "Login Success",
                 });
-                navigate("/orders");
+                navigate("/dashbord");
             } else {
                 Toast.fire({
                 icon: "warning",

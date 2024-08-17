@@ -187,7 +187,7 @@ return (
                 />
                 {formik.touched.name && formik.errors.name ? <div className="err">{formik.errors.name}</div> : null}
                 <input
-                  className="inp"
+                className="inp"
                 name="address"
                 type="text"
                 placeholder="Enter your Address"

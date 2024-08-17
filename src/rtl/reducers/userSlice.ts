@@ -12,6 +12,7 @@ interface User {
     phone_2: string;
     userId: string;
     id: string|undefined;
+    count:1
 }
 
 const addus = async (us: User) => {
@@ -21,7 +22,8 @@ const addus = async (us: User) => {
             address: us.address,
             phone_1: us.phone_1,
             phone_2: us.phone_2,
-            userId: us.userId
+            userId: us.userId,
+            count:1
             
         });
         console.log("User added to Firestore: ", us);

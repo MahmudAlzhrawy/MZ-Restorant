@@ -27,6 +27,7 @@ interface Meals{
     isOffer:string,
     category:string;
     createdAt?: Date;
+    count:1
 }
 const mealcoll=collection(db,"meals");
 export  const fetchdata = createAsyncThunk ("RestoSlice/fetchdata",async()=>{

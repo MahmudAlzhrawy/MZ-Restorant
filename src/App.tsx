@@ -16,6 +16,7 @@ import { Orders } from './pages/Admin/Orders';
 import { Editfoods } from './pages/Admin/Editfoods';
 import { Offers } from './components/Offers';
 import { Footer } from './components/Footer';
+import { Dashbord } from './pages/Admin/Dashbord';
 
 function App() {
   const[isAuth,setAuth]=useState<boolean>(localStorage.getItem("Auth")==="true");
@@ -35,6 +36,7 @@ function App() {
         <Route path="addNew" element={<AddNewFood/>}/>
         <Route path="Edit_meals" element={<Editfoods/>}/>
         <Route path="admin" element={<Admin/>}/>
+        <Route path="dashbord" element={<Dashbord/>}/>
         <Route path="menu" element={<Menu/>}/>
         <Route path='cart' element={<Cart isAuth={isAuth} />}/>
         <Route  path="/details/:mealId" element={<Details isAuth={isAuth} />}/>

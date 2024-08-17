@@ -1,5 +1,5 @@
 .nav{
-    @apply  max-[1000px]:h-full max-[1000px]:max-h-screen max-[1000px]:w-full max-[1000px]:opacity-90 max-[1000px]:max-w-32;
+    @apply max-[1000px]:rounded-br-full  max-[1000px]:h-full max-[1000px]:max-h-screen max-[1000px]:w-full max-[1000px]:opacity-90 max-[1000px]:max-w-32;
     ul{
         @apply max-[1000px]:block;
         li{
