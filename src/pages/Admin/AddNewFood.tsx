@@ -19,6 +19,7 @@ interface Meal {
     isOffer: string;
     category: string;
     count:1,
+    oldPrice?:string
 }
 
 export function AddNewFood() {
@@ -93,16 +94,19 @@ export function AddNewFood() {
             description: "",
             rate: "",
             category: "",
-            isOffer: ""
+            isOffer: "",
+            oldPrice:""
         },
         validationSchema: Yup.object().shape({
             title: Yup.string()
                 .min(4, "*Should not be lower than 4 letters")
-                .required("*Required"),
-            price: Yup.string().required("*Required"),
-            rate: Yup.string().required("*Required"),
-            category: Yup.string().required("*Required"),
-            isOffer: Yup.string().required("*Required")
+                .required("*You must  write Title"),
+            price: Yup.string().required("*please enter price"),
+            rate: Yup.string().required("*Required write rate"),
+            category: Yup.string().required("*you must select one"),
+            isOffer: Yup.string().required("*You must select YES or NO "),
+            oldPrice:Yup.string().required("*Required Old price"),
+
         }),
         onSubmit: async (values) => {
             console.log("Form Submitted");
@@ -117,7 +121,8 @@ export function AddNewFood() {
                     price: values.price,
                     rate: values.rate,
                     category: values.category,
-                    isOffer: values.isOffer
+                    isOffer: values.isOffer,
+                    oldPrice:values.oldPrice,
                 };
                 await uploadImageAndSaveMeals(meal, file);
                 setFile(null);
@@ -139,7 +144,6 @@ export function AddNewFood() {
                 <form onSubmit={formik.handleSubmit}>
                     <div className="lb">
                         <label htmlFor="tit">Title</label>
-                        
                         <input
                             className="inp"
                             type="text"
@@ -220,17 +224,34 @@ export function AddNewFood() {
                     </div>
                     <div className="lb">
                         <label htmlFor="if">Is Offer?</label>
-                        <input className="inp"
-                            placeholder="YES / NO"
-                            type="text"
+                        <select className="inp"
                             name="isOffer"
                             id="if"
                             value={formik.values.isOffer}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                        />
+                        >
+                            <option value="">isOffer ?</option>
+                            <option value="YES">YES</option>
+                            <option value="NO">NO</option>
+                        </select>
                     {formik.errors.isOffer && formik.touched.isOffer && <p className="err">{formik.errors.isOffer}</p>}
                     </div>
+                    {
+                        (formik.values.isOffer==="YES")&&
+                    <div className="lb">
+                        <label htmlFor="ol">Old Price</label>
+                        <input className="inp"
+                            placeholder="...$"
+                            type="text"
+                            name="oldPrice"
+                            id="ol"
+                            value={formik.values.oldPrice}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                        />
+                    {formik.errors.oldPrice && formik.touched.oldPrice && <p className="err">{formik.errors.oldPrice}</p>}
+                    </div>}
                     <Button className="w-full font-serif" variant="contained" type="submit">Add Meal</Button>
                 </form>
             </div>

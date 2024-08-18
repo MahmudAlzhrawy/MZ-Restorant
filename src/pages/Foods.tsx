@@ -39,6 +39,7 @@ interface Meals{
     url: string;
     isOffer:string,
     category:string;
+    oldPrice?:string;
 }
 interface bolProps {
     isAuth: boolean;
@@ -147,7 +148,7 @@ export function Foods( {isAuth}:bolProps ){
         >
         
         {
-        meals.filter((meal:Meals)=> meal.isOffer ==="YES"&& meal.category === category )
+        meals.filter((meal:Meals)=> meal.isOffer ==="YES" && meal.category === category )
                     .map((meal:Meals)=>{
                         return(
                             <SwiperSlide >
@@ -160,6 +161,10 @@ export function Foods( {isAuth}:bolProps ){
                             </div>
                             <div className="desc py-3">
                             <p className="text-2xl italic font-serif text-amber-600 "><span className="text-3xl font-serif text-red-600 ">Price : </span>{meal.price} $</p> 
+                            <p className="text-2xl italic font-serif text-red-600  line-through">
+                            <span className="text-2xl font-serif ">oldPrice : </span>
+                            {meal.oldPrice} $
+                            </p>
                             </div>
                             
                             <div className="btns absolute top-14  right-full duration-1000 ease-in-out  group-hover:right-0 p-0.5 bg-white bg-opacity-65 mr-1 h-48 rounded-xl align-middle">

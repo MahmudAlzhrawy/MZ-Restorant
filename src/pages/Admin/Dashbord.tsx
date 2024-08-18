@@ -88,19 +88,19 @@ export function Dashbord(){
         dispatch(fetchdata());
         dispatch(getOrders());
         dispatch(getUsers());
-    },[meals,orders])
+    },[meals,orders,users])
     return(<>
             <div className="main mt-32 ">
             <div className="container w-3/4 mx-auto p-5 ">
-                <div className="dash  shadow">
+                <div className="dash   shadow">
                     <h2>Dashbord</h2>
-                    <div className='navlin mb-5' >
+                    <div className='navlin mb-5 grid max-[610px]:grid-cols-2 max-[420px]:grid-cols-1 grid-cols-3 gap-4' >
                     <NavLink className='navl' to="/orders">orders</NavLink>
                     <NavLink className='navl' to="/addNew">Add New</NavLink>
                     <NavLink className='navl' to="/Edit_meals">Delete</NavLink>
                     </div>
-                    <div className="detail grid grid-cols-3">
-                        <div className="orders"> 
+                    <div className="detail grid max-[610px]:grid-cols-2 max-[420px]:grid-cols-1 grid-cols-3 gap-4">
+                        <div className="orders  "> 
                             <h3>Total Oreders</h3>
                             <p>{orodersNum}</p>
                         </div>
