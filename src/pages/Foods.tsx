@@ -53,10 +53,7 @@ export function Foods( {isAuth}:bolProps ){
     const handleLike=()=>{
         setLike(el =>!el);
     }
-    const[isClic,setClic]=useState<boolean>(false);
-    const handlesearch=()=>{
-        setClic(el =>!el);
-    }
+    
     useEffect(()=>{
         dispatch(fetchdata());
     },[dispatch])
@@ -67,48 +64,7 @@ export function Foods( {isAuth}:bolProps ){
 
         <div style={{height:"700px"}} className="group back w-full relative  overflow-x-hidden  ">
         <h1 className="  py-5 px-14 bg-amber-400  rounded-xl hover:bg-amber-400 hover:scale-105 duration-700 ease-in-out bg-opacity-20  absolute top-1/2 z-10 left-1/2 text-6xl -translate-x-1/2 -translate-y-1/2 italic text-white text-opacity-80 font-serif mt-3">{category}</h1>
-        <div className={` z-10 absolute max-[400px]:w-4/5 max-[400px]:translate-x-1/4  w-1/2  rounded-r-full translate-x-1/2 duration-1000  ease-in-out  top-48  border-amber-50 `}>
-        <TextField 
-        id="search-field"
-        label="Search"
         
-        className="w-full mx-auto p-2 rounded-r-full  border-transparent bg-white"
-        onChange={(ev)=>{
-            setItem(ev.target.value)
-        }}
-        InputProps={{
-            endAdornment: (
-            <InputAdornment position="end" className="rounded-r-full"  >
-                <SearchIcon  className="hover:cursor-pointer rounded-r-full" sx={{ color: 'white', fontSize: '2.5rem',backgroundColor:"brown" ,height:"70px " ,width:"60px" }} />
-            </InputAdornment>
-            ),
-                style: {
-                    color: '#D2691E',
-                    fontSize:"25px" // لون النص المدخل بني شوكولاتي
-                }
-                }}
-                InputLabelProps={{
-                style: {
-                    color: '#A0522D',
-                    fontSize:"25px" , // لون النص "Search" بني غامق
-                }
-                }}
-                sx={{
-                '& .MuiOutlinedInput-root': {
-                    '& fieldset': {
-                    borderColor: 'transparent', // لون الحدود بني خشبي
-                    },
-                    '&:hover fieldset': {
-                    borderColor: 'transparent', // لون الحدود عند التمرير بني عادي
-                    },
-                    '&.Mui-focused fieldset': {
-                    borderColor: 'transparent', // لون الحدود عند التركيز بني غامق
-                    },
-                    padding:"8px"
-                },
-        }}
-    />
-        </div>
             {
                 category==="Grills"? <img  className="w-full h-full"src={require(`../assets/Parpique/3.jpeg`)} alt="Grills Not Found now"/>:
                 category ==="seaFood"?<img className="w-full h-full" src={require(`../assets/Sea Food/1.jpeg`)} alt="Not Found"/>:
@@ -121,8 +77,12 @@ export function Foods( {isAuth}:bolProps ){
             }
         </div>
         <div className="Main  mt-5  overflow-x-hidden ">
-        <div className="offer bg-amber-400 bg-opacity-10  pb-6 w-full ">
-            <div className="mb-6 py-2 font-serif text-4xl italic text-amber-800 text-opacity-60 bg-opacity-60"><h1>offers</h1></div>
+        <div className="offer flex bg-amber-400 bg-opacity-10 h-96  pb-6 w-[95%] mx-auto ">
+        <div className="ofimg w-[35%] h-96">
+        <img className="w-full h-full" src={require(`../assets/ofer.jpeg`)}  alt="Not Found"/>
+        </div>
+        <div className="swip flex-grow ">
+        <h1 className="text-center block text-amber-800 mt-3 text-3xl   font-serif ">OFFERS</h1>
         <Swiper
                 effect={'coverflow'}
                 grabCursor={true}
@@ -144,7 +104,7 @@ export function Foods( {isAuth}:bolProps ){
                     dynamicBullets: true,
                 }}
                 modules={[Pagination,Autoplay,Navigation,EffectCoverflow]}
-                className="mySwiper w-2/3 mx-auto shadow"
+                className="mySwiper h-4/5  mx-auto "
         >
         
         {
@@ -219,7 +179,51 @@ export function Foods( {isAuth}:bolProps ){
                     }) }
                 </Swiper>
                 </div>
+                </div>
+                <div className={`  z-50  mt-10 max-[400px]:[85%] max-[400px]:translate-x-1/4  border-gray-500 border w-1/2  rounded-r-full translate-x-1/2 duration-1000  ease-in-out  top-48  `}>
+        <TextField 
+        id="search-field"
+        label="Search"
+        
+        className="w-full mx-auto p-2 rounded-r-full  border-transparent bg-white"
+        onChange={(ev)=>{
+            setItem(ev.target.value)
+        }}
+        InputProps={{
+            endAdornment: (
+            <InputAdornment position="end" className="rounded-r-full"  >
+                <SearchIcon  className="hover:cursor-pointer rounded-r-full" sx={{ color: 'white', fontSize: '2.5rem',backgroundColor:"brown" ,height:"70px " ,width:"60px" }} />
+            </InputAdornment>
+            ),
+                style: {
+                    color: '#D2691E',
+                    fontSize:"25px" // لون النص المدخل بني شوكولاتي
+                }
+                }}
+                InputLabelProps={{
+                style: {
+                    color: '#A0522D',
+                    fontSize:"25px" , // لون النص "Search" بني غامق
+                }
+                }}
+                sx={{
+                '& .MuiOutlinedInput-root': {
+                    '& fieldset': {
+                    borderColor: 'transparent', // لون الحدود بني خشبي
+                    },
+                    '&:hover fieldset': {
+                    borderColor: 'transparent', // لون الحدود عند التمرير بني عادي
+                    },
+                    '&.Mui-focused fieldset': {
+                    borderColor: 'transparent', // لون الحدود عند التركيز بني غامق
+                    },
+                    padding:"8px"
+                },
+        }}
+    />
+        </div>
         <div className="bg-amber-100">
+
             <div className="container mx-auto   mt-10 ">
                 <h2>Meals</h2>
                 <div className="cards z-10 relative m-4 ">

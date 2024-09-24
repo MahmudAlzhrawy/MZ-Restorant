@@ -18,8 +18,6 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import MenuIcon from '@mui/icons-material/Menu';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import InfoIcon from '@mui/icons-material/Info';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
  import HomeIcon from '@mui/icons-material/Home';
  import DashboardIcon from '@mui/icons-material/Dashboard';
 
@@ -122,9 +120,9 @@ const logout = () => {
                     {(adm)&&<li><Link to="dashbord"><DashboardIcon sx={{ fontSize: 40 }} /></Link></li>}
                     {(!adm && !dash) &&<li className="relative mr-2 "><Link to="cart" ><ShoppingBag sx={{ fontSize: 40 }} /><span className="absolute  -bottom-1.5 translate-x-1 left-1/2 inline-block w-5 h-6 rounded-full text-sm text-red-300 bg-white">{num}</span></Link></li>}
                     {(adm || dash) &&<li><Link to="/"> <HomeIcon style={{ fontSize: 50, color: '#D2691E' }} /></Link></li>}
-                    {(!adm && !dash)&&<li className="py-2 pr-3 pl-1 border-transparent hover:bg-amber-400 bg-amber-300 "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>}
-                    {(isAuth ==="true"&& (!adm && !dash)) &&<><li className=" py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 max-[1001px]:hidden  ml-2" onClick={logout}>logout</li><li className="max-[1000px]:block min-[1001px]:hidden" onClick={logout}><LogoutIcon sx={{ fontSize: 40 }}/></li></>}
-                    {(isAuth ==="false"&& (!adm && !dash)) &&<li className="py-2 pr-3 pl-1 hover:bg-amber-400 border-transparent text-white bg-amber-300 ml-2"><Link className=" max-[1001px]:hidden " to="Login">Login</Link><Link className="max-[1000px]:block min-[1001px]:hidden  "to="Login"><LoginIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(!adm && !dash)&&<li className="py-2 pr-3 pl-1 border border-amber-700  "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(isAuth ==="true"&& (!adm && !dash)) &&<><li className=" py-2  border pr-3 pl-1  border-amber-700 text-white max-[1001px]:hidden  ml-2" onClick={logout}>logout</li><li className="max-[1000px]:block min-[1001px]:hidden" onClick={logout}><LogoutIcon sx={{ fontSize: 40 }}/></li></>}
+                    {(isAuth ==="false"&& (!adm && !dash)) &&<li className="py-2 pr-3 pl- border  border-amber-700 text-white  ml-2"><Link className=" max-[1001px]:hidden " to="Login">Login</Link><Link className="max-[1000px]:block min-[1001px]:hidden  "to="Login"><LoginIcon sx={{ fontSize: 40 }}/></Link></li>}
                 </ul>
             
             </div>
