@@ -110,12 +110,11 @@ dispatch(fetchdata());
                 </div>
                 )
             })
-        }</>:<><span className=" inline-block w-4/5 mx-auto absolute top-1/2 left-1/2 " >
-            <div className="border-spacing-x-1 bg-transparent   animate-spin items-center text-center border-solid shadow-inner shadow-blue-500  border-r-transparent  border-blue-900 h-14 w-14 rounded-full "></div>
-            </span>
+        }</>:<div className="mt-14">
             
-            <div className="text-center absolute top-2/3 -translate-x-5 -translate-y-10 left-1/2 font-serif text-2xl h-8  ">Loading <span className="dots "></span><span className="dots  transform-cpu delay-500"></span><span className="dots"></span> </div>
-            </>
+            <div className="text-center absolute top-2/3 -translate-x-5 -translate-y-10 left-1/2 font-serif text-2xl h-8  "> <span className="dots "></span><span className="dots  transform-cpu delay-500"></span><span className="dots"></span> </div>
+            
+            </div>
         
 
 }
