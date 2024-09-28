@@ -50,10 +50,10 @@ export function Navbar({setAuth}:navprop){
     const adm =location.pathname === "/orders" || location.pathname ==="/addNew" || location.pathname==="/Edit_meals";
     const style=():React.CSSProperties=>{
         if(location.pathname ==="/"){
-            if(location.pathname ==="/"){
-                return{position: "relative"}
-            }
-            return {backgroundColor:"rgba(255, 255, 255, 0.3)"}
+            // if(location.pathname ==="/"){
+            //     return{position: "relative"}
+            // }
+            return {backgroundColor:"rgba(255, 255, 255,0.8)"}
             
         }
         else{
