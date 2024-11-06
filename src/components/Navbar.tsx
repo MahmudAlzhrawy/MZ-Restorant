@@ -1,6 +1,6 @@
 import React from "react";
 import "../sass/Nav.scss"
-import { useEffect ,useState} from "react";
+import { useEffect ,useState,useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
@@ -67,16 +67,17 @@ export function Navbar({setAuth}:navprop){
     const colors =["#D2B48C","#A52A2A","#8B4513","#654321","#3E2723","#D2691E","#DEB887","#7B3F00","#A52A2A"];
     let i=0;
     const speed=1000;
+    const iRef =useRef(i);
 useEffect(()=>{
     const logo= document.getElementById("Log");
 const interval =setInterval(()=>{
     if(logo){
-    logo.style.borderColor=colors[i];
-    i= (i+1) % colors.length;
+    logo.style.borderColor=colors[iRef.current];
+    iRef.current= (iRef.current+1) % colors.length;
 }
 },speed)
 return ()=>clearInterval(interval);
-},[])
+},[speed])
 useEffect(()=>{
     dispatch(cartItems())
     const countMealsInCart:number = cartMeals.reduce((count, meal) => {
@@ -116,11 +117,11 @@ const logout = () => {
             <div className="right-links items-center absolute top-1/4 right-0 min-[1024px]:-translate-x-5 ">
             <ul className="flex  items-center  max-[1000px]:mt-10 ">
                 
-                    {(!adm && !dash) &&<li> <Link to="admin" className="max-[1001px]:hidden">Admin</Link><Link to="admin" className="max-[1000px]:block min-[1001px]:hidden "><AdminPanelSettingsIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(!adm && !dash) &&<li> <Link to="admin" className=" active:border max-[1001px]:hidden">Admin</Link><Link to="admin" className="max-[1000px]:block min-[1001px]:hidden "><AdminPanelSettingsIcon sx={{ fontSize: 40 }}/></Link></li>}
                     {(adm)&&<li><Link to="dashbord"><DashboardIcon sx={{ fontSize: 40 }} /></Link></li>}
                     {(!adm && !dash) &&<li className="relative mr-2 "><Link to="cart" ><ShoppingBag sx={{ fontSize: 40 }} /><span className="absolute  -bottom-1.5 translate-x-1 left-1/2 inline-block w-5 h-6 rounded-full text-sm text-red-300 bg-white">{num}</span></Link></li>}
                     {(adm || dash) &&<li><Link to="/"> <HomeIcon style={{ fontSize: 50, color: '#D2691E' }} /></Link></li>}
-                    {(!adm && !dash)&&<li className="py-2 pr-3 pl-1 border border-amber-700  "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>}
+                    {(!adm && !dash)&&<li className=" active:border py-2 pr-3 pl-1 border border-amber-700  "><Link className="max-[1001px]:hidden " to="signup">Signup</Link> <Link className="max-[1000px]:block min-[1001px]:hidden " to="signup"><PersonAddIcon sx={{ fontSize: 40 }}/></Link></li>}
                     {(isAuth ==="true"&& (!adm && !dash)) &&<><li className=" py-2  border pr-3 pl-1  border-amber-700 text-white max-[1001px]:hidden  ml-2" onClick={logout}>logout</li><li className="max-[1000px]:block min-[1001px]:hidden" onClick={logout}><LogoutIcon sx={{ fontSize: 40 }}/></li></>}
                     {(isAuth ==="false"&& (!adm && !dash)) &&<li className="py-2 pr-3 pl- border  border-amber-700 text-white  ml-2"><Link className=" max-[1001px]:hidden " to="Login">Login</Link><Link className="max-[1000px]:block min-[1001px]:hidden  "to="Login"><LoginIcon sx={{ fontSize: 40 }}/></Link></li>}
                 </ul>
