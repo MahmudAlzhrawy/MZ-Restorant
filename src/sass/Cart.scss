@@ -1,30 +1,47 @@
-.Maincart{
+    .Maincart {
+        .container {
+        @apply border mx-auto p-3;
     
-    .container{
-        @apply border mx-auto p-3 ;
-        .cardc{
-            @apply h-full relative flex overflow-hidden  w-full mx-auto bg-amber-200 rounded-br-full mb-3 rounded-l-full
-            after:absolute  after:top-0 after:right-0  after:border-8 after:border-l-transparent after:border-b-transparent after:border-t-red-800 after:border-r-red-800 
-            ;
-            .image{
-                @apply overflow-hidden rounded-full ;
-                img{
-                    @apply hover:scale-110 duration-700 rounded-full;
+        .cardc {
+            @apply h-full relative flex overflow-hidden w-full mx-auto bg-amber-200 rounded-br-full mb-3 rounded-l-full;
+            position: relative;
+            &::after {
+            @apply absolute top-0 right-0 border-8;
+            border-color: transparent transparent #b22222 #b22222; // لون الحدود للزخرفة
+            }
+    
+            .image {
+            @apply overflow-hidden rounded-full;
+            
+            img {
+                @apply hover:scale-110 duration-700 rounded-full;
+            }
+            }
+    
+            .conten {
+            @apply relative max-[440px]:translate-x-2 translate-x-6;
+    
+            .title {
+                @apply text-3xl font-bold text-amber-950;
+            }
+    
+            .des {
+                @apply text-left text-xl font-mono text-amber-950;
+    
+                span {
+                @apply text-red-600 font-serif text-2xl;
                 }
             }
-            .conten{ 
-                @apply relative max-[440px]:translate-x-2 translate-x-6;
-                .des{
-                    @apply text-left  text-xl font-mono text-amber-950;
-                    span{
-                        @apply text-red-600 font-serif text-2xl; 
-                        
-                    }
-                }
-                .prate{
-                    @apply absolute bottom-0 left-0  max-[770px]:block flex
-                }
+    
+            .prate {
+                @apply absolute bottom-0 left-0 max-[770px]:block flex;
+            }
+    
+            .pric {
+                @apply text-xl font-serif text-gray-900;
+            }
             }
         }
-    } 
-}
+        }
+    }
+    

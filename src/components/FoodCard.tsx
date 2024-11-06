@@ -48,66 +48,58 @@ dispatch(fetchdata());
         meals.filter((meal:Meals)=>meal.category === category && meal.isOffer ==="NO")
             .map((meal:Meals)=>{
                 return(
-                <div key={meal.id} className={`group card pt-3 bg-white relative overflow-hidden    duration-700 ease-in-out w-full shadow`}>
+                    <div className="group h-full card relative overflow-hidden bg-white shadow-lg rounded-lg">
+                        <div className="title absolute top-2 left-[-100%] w-full bg-opacity-70 bg-gray-100 p-2 rounded-lg z-10 transition-all duration-500 group-hover:left-0">
+                        <h2 className="text-amber-900 text-center">{meal.title}</h2>
+                        </div>
+                    <div className="overflow-hidden hover:brightness-75">
+                    <img className="w-full h-60 object-cover hover:scale-110 transition-transform duration-700" src={meal.url} alt="Not found" />
+                    </div>
+                    <div className="desc py-3 text-center">
+                    <p className="text-amber-700 text-lg font-semibold">
+                        <span className="text-red-600 font-bold">Price:</span> ${meal.price}
+                    </p>
                     
-                    <div className="title group-hover:left-0 z-10 ">
-                        <h2>{meal.title}</h2>
                     </div>
-                    <div className="w-full max-w-sm mx-auto overflow-hidden hover:brightness-75 ">
-                        <img className=" w-full h-72 hover:scale-110 duration-700 ease-in-out" src={meal.url} alt="Not found"/>
-                    </div>
-                    <div className="desc py-3">
-                    <p className="text-2xl italic font-serif text-amber-600 "><span className="text-3xl font-serif text-red-600 ">Price : </span>{meal.price} $</p> 
-                    </div>
+                    <div className="btns absolute top-12 right-0 flex flex-col items-center space-y-2 p-1 bg-opacity-70 bg-white rounded-xl shadow-lg transform translate-x-full transition-transform duration-700 group-hover:translate-x-0">
                     
-                    <div className="btns absolute top-14  right-full duration-1000 ease-in-out  group-hover:right-0 p-0.5 bg-amber-600 bg-opacity-65 mr-1 h-48 rounded-xl align-middle">
-                        <div className="add items-center right-2 delay-700  p-0.5 rounded-full hover:bg-slate-100  hover:bg-opacity-40 border-transparent duration-700 ">
-                        <IconButton color="primary" aria-label="add to shopping cart" onClick={()=>{
-                        dispatch(cartItems())
-                        const findprod =cartMeals.find((mel)=>mel.ID === meal.ID && meal.user?.userId===auth.currentUser?.uid)
-                            if( isAuth) {
-                                if(!findprod){
-                                dispatch(addToCart(meal));
-                            }
-                                else{
-                                    Toast.fire({
-                                        icon: "info",
-                                        title: "This Meal is Find in Cart "
-                                    });
-                                }
-                            }
+                    <IconButton color="primary" aria-label="add to shopping cart" onClick={()=>{
+                    dispatch(cartItems())
+                    const findprod =cartMeals.find((mel)=>mel.ID === meal.ID && meal.user?.userId===auth.currentUser?.uid)
+                        if( isAuth) {
+                            if(!findprod){
+                            dispatch(addToCart(meal));
+                        }
                             else{
                                 Toast.fire({
-                                    icon: "warning",
-                                    title: " You Must Login First "
+                                    icon: "info",
+                                    title: "This Meal is Find in Cart "
                                 });
                             }
-                                
-                                
-                                }} >
-                        <AddShoppingCart />
-                        </IconButton>
-                        </div>
-                        <div className="more p-0.5 rounded-full hover:bg-slate-100  hover:bg-opacity-40 border-transparent duration-700 ">
-                        <Link to={`/details/${meal.ID}`}>
-                            <IconButton color="primary" aria-label="show more">
-                                <Visibility  />
-                            </IconButton>
-                        </Link>
-                        </div>
-                        <div className="fav p-0.5 rounded-full hover:bg-slate-100  hover:bg-opacity-40 border-transparent duration-700">
-                        <IconButton 
-                            onClick={handleLike}
-                            aria-label="like"
-                            style={{ color: isLike ? 'red':'white'   }}
-                            //className={`${isLike ? "text-red-600" : "text-gray-400"}`}
-                        >
-                                <Favorite  />
-                        </IconButton>
-                        </div>
-                        </div>
+                        }
+                        else{
+                            Toast.fire({
+                                icon: "warning",
+                                title: " You Must Login First "
+                            });
+                        }
                             
+                            
+                            }}>
+                        <AddShoppingCart />
+                    </IconButton>
+                    <Link to={`/details/${meal.ID}`}>
+                        <IconButton color="primary" aria-label="show more">
+                        <Visibility />
+                        </IconButton>
+                    </Link>
+                    <IconButton onClick={handleLike} aria-label="like" style={{ color: isLike ? 'red' : 'gray' }}>
+                        <Favorite />
+                    </IconButton>
+                    </div>
                 </div>
+                            
+                
                 )
             })
         }</>:<div className="mt-14">
