@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useFormik } from 'formik';
 import * as Yup from "yup";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -26,7 +26,7 @@ export function AddNewFood() {
     const prodcol = collection(db, "meals");
     const navigate = useNavigate();
     const [file, setFile] = useState<File | null | undefined>(undefined);
-
+    
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
             setFile(e.target.files[0]);
@@ -105,7 +105,16 @@ export function AddNewFood() {
             rate: Yup.string().required("*Required write rate"),
             category: Yup.string().required("*you must select one"),
             isOffer: Yup.string().required("*You must select YES or NO "),
-            oldPrice:Yup.string().required("*Required Old price"),
+            oldPrice: Yup.string()
+            .test(
+                'isOfferRequired',
+                '*Required Old price',
+                function (value) {
+                    const { isOffer } = this.parent;
+                    return isOffer === 'YES' ? !!value : true;
+                }
+            ),
+
 
         }),
         onSubmit: async (values) => {
@@ -136,7 +145,11 @@ export function AddNewFood() {
             }
         }
     });
-
+    useEffect(() => {
+        if (formik.values.isOffer !== "YES") {
+            formik.setFieldValue("oldPrice", ""); // Reset oldPrice if isOffer is not "YES"
+        }
+    }, [formik.values.isOffer]);
     return (
         <div className="Mainac  ">
             <div className="frm">
