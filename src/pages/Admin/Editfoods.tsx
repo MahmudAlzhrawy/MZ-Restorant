@@ -53,7 +53,7 @@ useEffect(()=>{
 dispatch(fetchdata());
 },[dispatch])
     return(
-    <div className="Main grid grid-cols-3   max-[550px]:grid-cols-2  max-[320px]:grid-cols-1 gap-2   ">
+    <div className="Main grid grid-cols-3  mt-32   max-[550px]:grid-cols-2  max-[320px]:grid-cols-1 gap-2   ">
         {
         meals.length !==0 ?<>{
         meals.map((meal:Meals)=>{
@@ -70,8 +70,7 @@ dispatch(fetchdata());
                     <p className="text-2xl italic font-serif text-amber-600 "><span className="text-3xl font-serif text-red-600 ">Price : </span>{meal.price} $</p> 
                     </div>
                     
-                    <div className="btns absolute top-14  right-full duration-1000 ease-in-out  group-hover:right-0 p-0.5 bg-amber-600 bg-opacity-65 mr-1 h-48 rounded-xl align-middle">
-                        <div className="Edit p-0.5 rounded-full hover:bg-slate-100  hover:bg-opacity-40 border-transparent duration-700 ">
+                    <div className="Edit p-0.5 rounded-full mx-auto   bg-amber-400 w-1/2 ">
                         <button onClick={()=>{
                             del(meal.id);
                         }} >
@@ -80,9 +79,7 @@ dispatch(fetchdata());
                             </IconButton>
                         </button>
                         </div>
-                        </div>
-                            
-                </div>
+            </div>
                 )
             })
         }</>:<><span className=" inline-block w-4/5 mx-auto absolute top-1/2 left-1/2 " >

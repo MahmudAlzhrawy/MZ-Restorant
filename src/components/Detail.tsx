@@ -67,10 +67,10 @@ export function Detail({ isAuth, id }: bolProps & Foodprops) {
                                     <div className="w-full md:w-1/2 bg-amber-50 p-6 flex flex-col justify-between">
                                         <div>
                                             <p className="text-amber-800 italic text-md font-serif mb-4">
-                                                <span className="text-red-700 text-2xl font-serif">Description: </span>{meal.description}
+                                                <span className="text-red-700 text-2xl font-serif"></span>{meal.description}
                                             </p>
                                             <p className="text-amber-600 text-2xl font-semibold">
-                                                <span className="text-red-600 text-3xl">Price: </span>${meal.price}
+                                                <span className="text-red-600 text-3xl"> </span>${meal.price}
                                             </p>
                                         </div>
 
