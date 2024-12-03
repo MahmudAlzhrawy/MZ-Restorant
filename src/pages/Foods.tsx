@@ -290,9 +290,8 @@ className="mySwiper h-4/5 mx-auto"
                                     </div> 
                                         )
                                     })
-        }</>:<div className="mt-10"><span className=" inline-block w-4/5 mx-auto absolute top-3/4 left-1/2 " >
-            </span>
-            <div className="text-center absolute top-1/2 -translate-x-5 -translate-y-10 left-1/2 font-serif text-2xl h-8  ">not found results  <span className="dots "></span><span className="dots  transform-cpu delay-500"></span><span className="dots"></span> </div>
+        }</>:<div className="mt-10 mx-auto ">
+            <div className="text-center absolute top-1/2 -translate-x-32  -translate-y-10 left-1/2 font-serif text-2xl h-8  ">not found results  <span className="dots "></span><span className="dots  transform-cpu delay-500"></span><span className="dots"></span> </div>
             </div>
         
 

@@ -134,8 +134,8 @@ const logout = () => {
             </div>
             <div className="left absolute top-1/3 left-0 min-[1024px]:translate-x-14  ">
                 <ul className=" flex items-center  ">
-                    <li><Link to="" className=" max-[1001px]:hidden ">About</Link><Link to="" className="max-[1000px]:block min-[1001px]:hidden"><InfoIcon sx={{ fontSize: 40 }}/></Link></li>
-                    <li><Link to="" className="max-[1001px]:hidden">Contact</Link><Link to="" className="max-[1000px]:block min-[1001px]:hidden "><ContactMailIcon sx={{ fontSize: 40 }}/></Link></li>
+                    {/* <li><Link to="" className=" max-[1001px]:hidden ">About</Link><Link to="" className="max-[1000px]:block min-[1001px]:hidden"><InfoIcon sx={{ fontSize: 40 }}/></Link></li>
+                    <li><Link to="" className="max-[1001px]:hidden">Contact</Link><Link to="" className="max-[1000px]:block min-[1001px]:hidden "><ContactMailIcon sx={{ fontSize: 40 }}/></Link></li> */}
                     {!adm&&<li><Link className=" max-[1001px]:hidden " to="/menu">Menu</Link><Link className=" max-[1000px]:block min-[1001px]:hidden  " to="/menu"><MenuIcon sx={{ fontSize: 40 }}/></Link></li>}
                 </ul>
             </div>
